@@ -12,12 +12,20 @@
         <module>abstract-factory</module>
         <module>builder</module>
         <module>chain</module>
+        <module>strategy</module>
+        <module>Adapter</module>
+        <module>bridge</module>
+        <module>composite</module>
+        <module>virus-broadcast</module>
     </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.12</junit.version>
         <slf4j.version>1.7.28</slf4j.version>
         <logback.version>1.2.3</logback.version>
+        <commons.collections.version>4.4</commons.collections.version>
+        <commons.lang.version>3.9</commons.lang.version>
     </properties>
 
     <dependencies>
@@ -42,5 +50,18 @@
             <artifactId>logback-core</artifactId>
             <version>${logback.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commons.collections.version}</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang.version}</version>
+        </dependency>-->
+
     </dependencies>
 </project>

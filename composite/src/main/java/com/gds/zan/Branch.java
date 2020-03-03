@@ -17,6 +17,7 @@ public class Branch extends Corp implements IBranch {
 
     @Override
     public void add(Corp corp) {
+        corp.setParent(this);// 设置父节点
         corps.add(corp);
     }
 

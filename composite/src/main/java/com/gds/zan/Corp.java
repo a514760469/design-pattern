@@ -11,6 +11,10 @@ public abstract class Corp {
     private String position;
     private int salary;
 
+    // 父节点是谁
+    private Corp parent = null;
+
+
     public Corp(String name, String position, int salary) {
         this.name = name;
         this.position = position;
@@ -21,5 +25,13 @@ public abstract class Corp {
         return "姓名：" + this.name +
                 "\t职位：" + this.position +
                 "\t薪水：" + this.salary;
+    }
+
+    protected void setParent(Corp parent) {
+        this.parent = parent;
+    }
+
+    public Corp getParent() {
+        return parent;
     }
 }

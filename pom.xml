@@ -28,6 +28,7 @@
         <module>memento</module>
         <module>observer</module>
         <module>state</module>
+        <module>visitor</module>
     </modules>
 
     <properties>

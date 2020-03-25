@@ -1,5 +1,7 @@
 package com.gds;
 
+import com.gds.linux.command.ls.AbstractLs;
+
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
@@ -92,7 +94,7 @@ public class BeanUtils {
     private static List<Class<?>> getClasses(String packageName) {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         String path = packageName.replace(".", "/");
-        Enumeration<URL> resources = null;
+        Enumeration<URL> resources;
         List<File> dirs = new ArrayList<>();
         try {
             resources = classLoader.getResources(path);
@@ -138,6 +140,6 @@ public class BeanUtils {
 
 
     public static void main(String[] args) {
-
+        getSonClass(AbstractLs.class).forEach(System.out::println);
     }
 }

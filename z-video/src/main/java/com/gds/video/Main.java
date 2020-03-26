@@ -14,6 +14,8 @@ public class Main {
 
     private static final String[] VIDEO_SUFFIXES = {".avi", ".wmv", ".mp4", ".mpeg", ".rmvb", ".mkv"};
 
+    private static String talk;
+
     /**
      * ffmpeg路径：
      * D:\develop\ffmpeg-win64-static\bin\
@@ -26,21 +28,23 @@ public class Main {
         String workSpace = System.getProperty("user.dir");
         System.out.println("当前进程的工作空间:" + workSpace);
         File workDir = new File(workSpace);
-        String[] list = workDir.getParentFile().list();
+        String[] list = workDir.list();
 
         Scanner scanner = new Scanner(System.in);
         String ffmpeg;
-        if (list != null && Stream.of(list).anyMatch(s -> s.substring(s.lastIndexOf(File.separator)).equals("ffmpeg.exe"))) {
-            ffmpeg = System.getProperty("user.dir");
+        if (list != null && Stream.of(list).peek(System.out::println).anyMatch(s -> s.equals("ffmpeg.exe"))) {
+            ffmpeg = System.getProperty("user.dir") + File.separator;
         } else {
             System.out.println("ffmpeg路径：");
             ffmpeg = scanner.next();
         }
 
-        System.out.println("目标路径：");
+        System.out.println("视频路径：");
         String path = scanner.next();
         System.out.println("输出路径：");
         String outPath = scanner.next();
+        System.out.println("图片路径：");
+        talk = scanner.next();
         scanner.close();
         // 创建输出路径
         File outDir = new File(outPath);
@@ -55,7 +59,6 @@ public class Main {
         if (!file.isDirectory()) {
             System.out.println("处理文件：" + file.getAbsolutePath());
             execute(ffmpeg, file.getAbsolutePath(), outPath + File.separator + file.getName());
-//            System.out.println("1:" + ffmpeg + ", 2：" + file.getAbsolutePath() + ", 3:" + outPath + file.getName());
         } else {
             // 是目录
             File[] videoFiles = file.listFiles((dir, name) -> {
@@ -87,16 +90,9 @@ public class Main {
 
     public static void execute(String ffmpeg, String targetFile, String outPath)
             throws IOException, InterruptedException {
-        List<String> cmd = Arrays.asList(
-                ffmpeg + "ffmpeg",
-                "-i",
-                targetFile,
-                "-vf",
-                "drawtext=fontfile=simhei.ttf: text=风一样的老子:x=10:y=10:fontsize=24:fontcolor=white:shadowy=2",
-                outPath);
-        System.out.println("执行：{}" + String.join(" ", cmd));
-        ProcessBuilder pb = new ProcessBuilder(cmd);
 
+        CmdProcessFactory cmdProcessFactory = new CmdProcessFactory(ffmpeg, targetFile, talk, outPath);
+        ProcessBuilder pb = cmdProcessFactory.addTopLeftLogo();
         Process process = pb.start();
 
         InputStream errorStream = process.getErrorStream();

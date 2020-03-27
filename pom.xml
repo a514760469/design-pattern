@@ -30,6 +30,8 @@
         <module>state</module>
         <module>visitor</module>
         <module>z-video</module>
+        <module>web-mvc</module>
+        <module>specification</module>
     </modules>
 
     <properties>

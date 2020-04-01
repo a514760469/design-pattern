@@ -32,6 +32,8 @@
         <module>z-video</module>
         <module>web-mvc</module>
         <module>specification</module>
+        <module>ambassador</module>
+        <module>async-method-invocation</module>
     </modules>
 
     <properties>

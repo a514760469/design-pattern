@@ -11,8 +11,11 @@ public class App {
         AppManager.initDb(false);
         AppManager.initCacheCapacity(3);
 
-        useReadThroughAndWriteBehindStrategy();
 
+        useReadAndWriteThroughStrategy();
+        useReadThroughAndWriteAroundStrategy();
+        useReadThroughAndWriteBehindStrategy();
+        useCacheAsideStrategy();
     }
 
     public static void useCacheAsideStrategy() {

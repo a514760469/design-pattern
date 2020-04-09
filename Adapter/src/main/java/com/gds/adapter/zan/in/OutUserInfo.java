@@ -1,7 +1,6 @@
 package com.gds.adapter.zan.in;
 
-import com.gds.adapter.zan.in.IUserInfo;
-import com.gds.adapter.zan.out.OutUser;
+import com.gds.adapter.zan.out1.OutUser;
 
 import java.util.Map;
 

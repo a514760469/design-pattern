@@ -66,5 +66,6 @@ public class LoopQuery {
 
     public static void main(String[] args) {
         new LoopQuery().query("12345");
+//        Integer.MAX_VALUE 2147483647
     }
 }

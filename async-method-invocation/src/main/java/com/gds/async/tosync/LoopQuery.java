@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 循环等待
+ * 异步转同步 循环等待
  * @author zhanglifeng
  * @since 2020-04-08 15:21
  */

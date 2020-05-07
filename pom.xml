@@ -35,6 +35,7 @@
         <module>async-method-invocation</module>
         <module>caching</module>
         <module>CQRS</module>
+        <module>circuit-breaker</module>
     </modules>
 
     <properties>

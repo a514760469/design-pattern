@@ -36,6 +36,7 @@
         <module>caching</module>
         <module>CQRS</module>
         <module>circuit-breaker</module>
+        <module>retry</module>
     </modules>
 
     <properties>
@@ -45,7 +46,19 @@
         <logback.version>1.2.3</logback.version>
         <commons.collections.version>4.4</commons.collections.version>
         <commons.lang.version>3.9</commons.lang.version>
+        <lombok.version>1.18.10</lombok.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
